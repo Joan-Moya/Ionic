@@ -1,0 +1,6 @@
+crear app ----- ionic start myApp blank
+
+ejecutar app ------ ionic serve 
+
+
+recursos ----- https://ionicframework.com/docs/api
