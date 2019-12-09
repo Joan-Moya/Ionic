@@ -1,0 +1,296 @@
+<!--INCLUIMOS UN CSS PARA LAS ANIMACIONES DEL SLIDER-->
+<style type="text/css">
+
+ion-content{
+  --background: #fff url('../../assets/wallpaper.png') no-repeat center center / cover;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+ion-button:hover{
+
+  -webkit-box-shadow: 10px 9px 12px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 9px 12px -4px rgba(0, 0, 0, 0.692);
+  box-shadow: 10px 9px 12px -4px rgba(0,0,0,0.75);
+
+  transition: 0.3s;
+}
+
+.slider {
+	width: 100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 15s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+  </style>
+
+
+
+<div class="container">
+<ion-content>
+  <!--Codigo de la cabecera-->
+    <ion-header>
+      <ion-toolbar >
+        <ion-title>
+          <img src="../../assets/logo.png" style="width: 30%; margin-left: 35%;">
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+
+    <h1 style="margin-left: 20%;"><b>AÑADE UN PRODUCTO</b></h1>
+
+
+    <!--VAMOS A HACER UN SLIDER CON IMAGENES-->
+    
+
+      <div class="slider">
+        <ul>
+            <li>
+              <img src="https://img.milanuncios.com/fg/3242/09/324209503_1.jpg?VersionId=Q72PnG7wtGR3.hZPAVW8TZpLMJIPhiFj" alt="">
+            </li>
+            <li>
+              <img src="https://img.milanuncios.com/fg/2316/33/231633913_1.jpg?VersionId=kLtlcrVvO00fNy3U3YkjNrmrSYcMsSbV" alt="">
+            </li>
+            <li>
+              <img src="https://img.milanuncios.com/fg/2788/76/278876444_1.jpg?VersionId=W3ntc6LymI2M9oMvO78gOuDM6YJi9MgM" alt="">
+            </li>
+            <li>
+              <img src="https://img.milanuncios.com/fg/3214/14/321414078_3.jpg?VersionId=jRexw8AD1Oj7Pq7KWHKVJ6ufMmrpiwt" alt="">
+          </li>
+        </ul>
+      </div>
+
+
+    <!--PONERMOS UNA FOTO DE PAGO SEGURO-->
+    <img src="../../assets/seguridad.png" style="width: 80%; margin-left: 10%;">
+
+
+   <!--ESTE ES EL DIV DONDE IRÁN LOS DIFERENTES TIPOS A ELEJIR-->
+
+   <div class="ion-padding" style="
+   width: 90%;
+   margin-left:7%;
+   background-color: transparent;
+ 
+   ">
+   
+   <H1 style="margin-left:5%"><b>De que tipo es tu producto?</b></H1>
+     <br>
+     <ion-button color="light" (click)="Cambiar_OcultoMotor()">Motor</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoInmobiliaria()">Inmobiliaria</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoTecnologia()">Tecnología</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoHogar()">Hogar</ion-button>
+   </div>
+
+    <!--FORMULARIO DE MOTOR-->
+    <div *ngIf = "oculto == false"  class="ion-padding"  style="
+      
+    width: 80%;
+    margin-left:12%;
+    background-color: white;
+    
+    -webkit-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);;
+    
+    "><br><br>
+
+      <h3><b>Que tipo de vehiculo es?</b></h3>
+      
+      <ion-list>
+        <ion-item>
+          <ion-label>Coche</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Moto</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+      </ion-list>
+      <br><br>
+
+      <h3><b>De que año es el vehiculo?</b></h3>
+      <ion-item>
+        <ion-label>Año</ion-label>
+        <ion-datetime displayFormat="YYYY" value="2020-12-15T13:47:20.789"></ion-datetime>
+      </ion-item>
+    </div><br><br>
+
+
+
+
+
+  <!--FORMULARIO DE INMOBILIARIA-->
+  <div *ngIf = "ocultoInmobiliaria == false"  class="ion-padding"  style="
+    
+  width: 80%;
+  margin-left:12%;
+  background-color: white;
+
+  -webkit-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+  box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);;
+  
+  ">
+
+    <h3><b>Datos de la residencia</b></h3>
+
+    <ion-item>
+        <ion-label>M² :</ion-label>
+        <ion-input value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Numero de baños:</ion-label>
+        <ion-input value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Numero de habitaciones:</ion-label>
+          <ion-input value=""></ion-input>
+      </ion-item>
+
+    <ion-item>
+      <ion-label>Localidad:</ion-label>
+      <ion-input value=""></ion-input>
+    </ion-item>
+
+  </div><br><br>
+
+
+
+   <!--FORMULARIO DE TECNOLOGÍA-->
+  <div *ngIf = "ocultoTecnologia == false"  class="ion-padding"  style="
+    
+  width: 80%;
+  margin-left:12%;
+  background-color: white;
+  
+  -webkit-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+  box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);;
+  
+  ">
+
+
+   <h3><b>En que estado está?</b></h3>
+      
+   <ion-list>
+     <ion-item>
+       <ion-label>Perfecto estado</ion-label>
+       <ion-checkbox></ion-checkbox>
+     </ion-item>
+     <ion-item>
+       <ion-label>Usado</ion-label>
+       <ion-checkbox></ion-checkbox>
+     </ion-item>
+   </ion-list>
+   <br><br>
+
+  </div><br><br>
+
+
+
+
+
+    <!--Aqui es donde iran los detalles del producto-->
+    <div class="ion-padding" style="
+    width: 90%;
+    margin-left:7%;
+    background-color: white;
+    
+    -webkit-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);;
+  
+    ">
+    
+    <H1 style="margin-left:5%"><b>Detalles del producto</b></H1>
+      <br>
+      <div style="background-color: transparent;">
+        <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+        <ion-input placeholder="Precio"  [(ngModel)]="precio"></ion-input> 
+        <ion-input placeholder="Descripción"  [(ngModel)]="descripcion"></ion-input>
+        <ion-button expand="block" (click)="insertar()">Insertar</ion-button>
+     </div>
+    </div><br><br>
+
+
+   
+     
+  
+
+    <!--Listado de los productos almacenados-->
+    <div  class="ion-padding"  style="
+      
+    width: 80%;
+    margin-left:12%;
+    background-color: white;
+    
+    -webkit-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);
+    box-shadow: 4px 7px 27px -3px rgba(0,0,0,0.75);;
+    
+    ">
+
+     <h3><b>Listado productos</b></h3>
+        
+     <ion-card *ngFor="let articulo of articulos">
+
+       <ion-card-header>
+          <ion-card-title>Articulo: {{articulo.Nombre}} ({{articulo.Precio}} €)</ion-card-title>
+       </ion-card-header>
+
+       <ion-card-content>
+          <ion-label>Descripcion:</ion-label>
+          {{articulo.Descripcion}}
+       </ion-card-content>
+
+       <img src="../../assets/eliminarProducto.png" style="width: 10%; margin-left: 90%;" ><!--Boton de cerrar-->
+
+     </ion-card>
+
+    </div>
+    </ion-content>
+    
+
+</div>
+
+
+ 
+
+
+
