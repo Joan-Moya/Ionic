@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--Listado de los productos almacenados-->
+<div  id="div_contenedor" class="ion-padding" >
+  <h3><b>Listado de Detalles</b></h3> 
+  <ion-card >
+    <ion-card-header>
+      Articulo: {{res.Nombre}} <br>
+      Precio: {{res.Precio}}€ <br>
+      Descripcion:  {{res.Descripcion}}
+    </ion-card-header>
+    <ion-card-content> 
+    </ion-card-content>
+     <img src="../../assets/eliminarProducto.png" style="width: 10%; margin-left: 90%;" (click)="eliminar(articulo.Id)" ><!--Boton de cerrar-->
+    </ion-card>
+ </div>
+
+</ion-content>
