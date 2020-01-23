@@ -1,0 +1,34 @@
+
+<!--AQUÍ VA LA CABECERA DE LA APP-->
+<div class="container">
+<ion-content>
+  <!--Codigo de la cabecera-->
+    <ion-header>
+      <ion-toolbar >
+        <ion-title>
+          <img src="../../assets/logo.png" style="width: 30%; margin-left: 35%;">
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+     <!--Listado de los productos almacenados-->
+   <div  id="div_contenedor" class="ion-padding">
+    <h3>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Listado productos</b></h3> 
+    <ion-card *ngFor="let articulo of articulos">
+      <ion-card-header>
+         <ion-card-title>Articulo: {{articulo.Nombre}}</ion-card-title>
+      </ion-card-header>
+      &nbsp;&nbsp;&nbsp;<ion-button  [routerLink]="['/detalles/',articulo.Id]" routerDirection="forward">Ver más</ion-button>
+       <img src="../../assets/eliminarProducto.png" style="width: 10%; margin-left: 90%;" (click)="eliminar(articulo.Id)" ><!--Boton de cerrar-->
+      </ion-card>
+   </div>
+
+   
+    </ion-content>
+</div>
+
+
+ 
+
+
+
