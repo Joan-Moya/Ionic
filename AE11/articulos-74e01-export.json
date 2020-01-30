@@ -1,0 +1,40 @@
+{
+  "Articulos" : {
+    "-Lzh01PyN9ace7OUAFvk" : {
+      "Descripcion" : "esta mu xulo to peppino",
+      "Nombre" : "Ferrary",
+      "Precio" : "200000",
+      "Usuario" : "e7sWwhTt0FXvGerUku7j43U90ik1"
+    },
+    "A1" : {
+      "Categoria" : "Tecnologia",
+      "Descripcion" : "Con pantalla plegable",
+      "Id" : 1,
+      "Nombre" : "Galaxy fold",
+      "Usuario" : "e7sWwhTt0FXvGerUku7j43U90ik1",
+      "estado" : "usado"
+    },
+    "A2" : {
+      "Categoria" : "Inmobiliaria",
+      "Descripcion" : "Con buenas vistas",
+      "Id" : 2,
+      "Localidad" : "Valencia",
+      "Nombre" : "Casa adosada",
+      "Usuario" : "e7sWwhTt0FXvGerUku7j43U90ik1"
+    },
+    "A3" : {
+      "Categoria" : "Motor",
+      "Descripcion" : "Coche de altas prestaciones",
+      "Id" : 3,
+      "Nombre" : "Seat leon",
+      "Tipo" : "Coche"
+    }
+  },
+  "Usuarios" : {
+    "e7sWwhTt0FXvGerUku7j43U90ik1" : {
+      "Contraseña" : "contraseña",
+      "Id" : "e7sWwhTt0FXvGerUku7j43U90ik1",
+      "Nombre" : "joan"
+    }
+  }
+}

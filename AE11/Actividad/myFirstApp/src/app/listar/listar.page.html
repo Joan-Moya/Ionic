@@ -1,0 +1,163 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>AÑADE UN PRODUCTO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--VAMOS A HACER UN SLIDER CON IMAGENES-->
+  <div class="slider">
+    <ul>
+        <li>
+            <img src="https://img.milanuncios.com/fg/3242/09/324209503_1.jpg?VersionId=Q72PnG7wtGR3.hZPAVW8TZpLMJIPhiFj" alt="">
+        </li>
+        <li>
+            <img src="https://img.milanuncios.com/fg/2316/33/231633913_1.jpg?VersionId=kLtlcrVvO00fNy3U3YkjNrmrSYcMsSbV" alt="">
+        </li>
+        <li>
+          <img src="https://img.milanuncios.com/fg/2788/76/278876444_1.jpg?VersionId=W3ntc6LymI2M9oMvO78gOuDM6YJi9MgM" alt="">
+        </li>
+        <li>
+          <img src="https://img.milanuncios.com/fg/3214/14/321414078_3.jpg?VersionId=jRexw8AD1Oj7Pq7KWHKVJ6ufMmrpiwt" alt="">
+        </li>
+   </ul>
+ </div>
+ 
+
+  <!--ESTE ES EL DIV DONDE IRÁN LOS DIFERENTES TIPOS A ELEGIR-->
+  <div id="tipos_de_producto" class="ion-padding">
+    <H1 style="margin-left:5%"><b>De que tipo es?</b></H1><br>
+     <ion-button color="light" (click)="Cambiar_OcultoMotor()">Motor</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoInmobiliaria()">Inmobiliaria</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoTecnologia()">Tecnología</ion-button>
+     <ion-button color="light" (click)="Cambiar_OcultoHogar()">Hogar</ion-button>
+   </div>
+
+  <!--FORMULARIO DE MOTOR-->
+  <div id="div_contenedor" *ngIf = "oculto == false"  class="ion-padding"><br><br>
+
+    <!--Aqui es donde iran los detalles del producto-->
+  <div  id="div_contenedor" class="ion-padding">
+      <H1 style="margin-left:5%"><b>Detalles del producto</b></H1><br>
+        <div style="background-color: transparent;">
+          <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+          <ion-input placeholder="Precio"  [(ngModel)]="precio"></ion-input> 
+          <ion-input placeholder="Descripción"  [(ngModel)]="descripcion"></ion-input>
+       </div>
+      </div><br>
+
+
+      <ion-list>
+        <ion-item>
+          <ion-label>{{tipoVehiculo}}</ion-label>
+          <ion-select placeholder="Vehículo" [(ngModel)]="tipo" name="tipo" required>
+            <ion-select-option value="Coche">Coche</ion-select-option>
+            <ion-select-option value="Moto">Moto</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    <ion-item>
+        <ion-input placeholder="Km" [(ngModel)]="km"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Año</ion-label>
+        <ion-datetime displayFormat="YYYY" value="2020-12-15T13:47:20.789" [(ngModel)]="anyo"></ion-datetime>
+    </ion-item>
+    
+    <ion-button expand="block" (click)="insertar()">Insertar</ion-button>
+
+  </div><br><br>
+
+
+  <!--FORMULARIO DE INMOBILIARIA-->
+  <div  id="div_contenedor" *ngIf = "ocultoInmobiliaria == false"  class="ion-padding">
+
+    <!--Aqui es donde iran los detalles del producto-->
+    <div  id="div_contenedor" class="ion-padding">
+        <H1 style="margin-left:5%"><b>Detalles del producto</b></H1><br>
+          <div style="background-color: transparent;">
+            <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+            <ion-input placeholder="Precio"  [(ngModel)]="precio"></ion-input> 
+            <ion-input placeholder="Descripción"  [(ngModel)]="descripcion"></ion-input>
+         </div>
+        </div><br>
+
+
+    <h3><b>Datos de la residencia</b></h3>
+      <ion-item>
+        <ion-label>M² :</ion-label>
+        <ion-input value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Numero de baños:</ion-label>
+        <ion-input value=""></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Numero de habitaciones:</ion-label>
+          <ion-input value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Localidad:</ion-label>
+        <ion-input value=""></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="insertar()">Insertar</ion-button>
+
+  </div><br><br>
+
+   <!--FORMULARIO DE TECNOLOGÍA-->
+   <div  id="div_contenedor" *ngIf = "ocultoTecnologia == false"  class="ion-padding">
+
+
+    <!--Aqui es donde iran los detalles del producto-->
+  <div  id="div_contenedor" class="ion-padding">
+      <H1 style="margin-left:5%"><b>Detalles del producto</b></H1><br>
+        <div style="background-color: transparent;">
+          <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+          <ion-input placeholder="Precio"  [(ngModel)]="precio"></ion-input> 
+          <ion-input placeholder="Descripción"  [(ngModel)]="descripcion"></ion-input>
+       </div>
+      </div><br>
+
+
+  <h3><b>En que estado está?</b></h3>
+  <ion-list>
+    <ion-item>
+      <ion-label>Perfecto estado</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Usado</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+  </ion-list><br><br>
+
+  <ion-button expand="block" (click)="insertar()">Insertar</ion-button>
+
+  </div><br><br>
+
+ 
+
+
+
+
+   <!--FORMULARIO DE HOGAR-->
+   <div  id="div_contenedor" *ngIf = "ocultoHogar == false"  class="ion-padding">
+
+    <!--Aqui es donde iran los detalles del producto-->
+    <div  id="div_contenedor" class="ion-padding">
+      <H1 style="margin-left:5%"><b>Detalles del producto</b></H1><br>
+        <div style="background-color: transparent;">
+          <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+          <ion-input placeholder="Precio"  [(ngModel)]="precio"></ion-input> 
+          <ion-input placeholder="Descripción"  [(ngModel)]="descripcion"></ion-input>
+       </div>
+      </div><br>
+      <ion-button expand="block" (click)="insertar()">Insertar</ion-button>
+</div>
+
+
+</ion-content>

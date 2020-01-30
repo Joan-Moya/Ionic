@@ -4,6 +4,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 
 
 
+
 @Injectable()
 
 export class ArticuloServicio{
@@ -59,7 +60,40 @@ export class ArticuloServicio{
      getArticulos() : firebase.database.Reference{
         let ref = this._db.database.ref("Articulos");
         return ref;
+        
      }
+
+     getArticulosUsuario(id: string): IArticulo[]{
+        let ref = this._db.database.ref("Articulos");
+        let result: IArticulo[] =[];
+        ref.orderByChild('Usuario').equalTo(id).once("value", snapshot =>{
+            
+            snapshot.forEach(child =>{
+                console.log("He encontrado"+child.val().Usuario);
+                const value = child.val();
+                value.key = child.key;
+                result.push(value);
+
+            })
+        
+        });
+        return result;
+     }
+
+
+     //con esta función recorremos el nodo Articulos, lo ordenamos por la key y eliminamos el key que hemos pasado 
+     eliminarArticulo(valor: string){
+
+        let ref = this._db.database.ref("Articulos");
+        ref.orderByKey().equalTo(valor).once("value", snapshot => {
+                snapshot.forEach(child => {
+                let clave = child.key;
+                ref.child(clave).remove();
+            })
+        });
+     }
+
+
 
      getArticulo(key : string): firebase.database.Reference{
         let ref = this._db.database.ref('/articulos/' + key);

@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {IArticulo, IMotor, IInmobiliaria, ITecnologia} from '../interfaces';
 import { ToastController } from '@ionic/angular';
 import {ArticuloServicio} from '../services/articulo.servicio';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-productos-usuario',
+  templateUrl: './productos-usuario.page.html',
+  styleUrls: ['./productos-usuario.page.scss'],
 })
-
-
-export class HomePage {
+export class ProductosUsuarioPage implements OnInit {
 
 
   //VAMOS A PONER LA PROGRAMACION DE LOS DIFERENTES DIVS
@@ -37,22 +34,25 @@ export class HomePage {
   articulos: (IArticulo | IMotor | IInmobiliaria | ITecnologia)[] = [];
   private _ArticulosServicio;
 
+  
 
   constructor(private _toastCtrl : ToastController, cs : ArticuloServicio) {
     this._ArticulosServicio = cs;
   }
 
   ngOnInit(){
-    let ref = this._ArticulosServicio.getArticulos();
-
-    ref.once("value", snapshot => {
-      snapshot.forEach( child => {
-       let value = child.val();
-       value.key=child.key;
-       this.articulos.push(value);
-      })
-    });
+    this.articulos = this._ArticulosServicio.getArticulosUsuario("e7sWwhTt0FXvGerUku7j43U90ik1");
   }
+
+  mostrar(){
+    console.log("Elementos de " +this.articulos.length)
+  }
+
+  
+eliminar(valor: string){
+  this._ArticulosServicio.eliminarArticulo(valor);
+  
+}
 
   Cambiar_OcultoMotor() : void{
     this.oculto = !this.oculto;
@@ -199,3 +199,4 @@ export class HomePage {
   }*/
   
 }
+
